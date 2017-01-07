@@ -82,3 +82,15 @@ dropWhileFold f = foldl (\y x -> if f x && null y then [] else y ++ [x]) []
  
 foldl' :: (b -> a -> b) -> b -> [a] -> b
 foldl' f n = (foldr (flip f) n) . reverse 
+
+filterMaybeFold :: [Maybe a] -> [a]
+filterMaybeFold = foldr (filterMaybe) []
+                     where filterMaybe (Just x) r = x:r
+                           filterMaybe (Nothing) r = r
+
+countFold :: (Eq a) => a -> [a] -> Int
+countFold val = foldr (\x y -> if x == val then y + 1 else y) 0
+
+isAscendingFold :: (Ord a) => [a] -> Bool
+isAscendingFold [] = True
+isAscendingFold (z:zs) = snd $ foldl (\(prev, state) x -> if state && prev < x then (x, True) else (x, False)) (z, True) zs
