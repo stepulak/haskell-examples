@@ -1,2 +1,2 @@
 # nonimperative-examples
-Some of my usefull stuff from IB015 course
+Some of my (humble) usefull stuff from IB015 course
