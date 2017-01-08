@@ -53,3 +53,10 @@ insertSort s = foldr (insert) [] s
     where
      insert x [] = [x]
      insert x (y:s) = if x > y then y : insert x s else x : y : s
+
+asciiToString :: [Int] -> String
+asciiToString [] = []
+asciiToString (x:xs)
+     | fromEnum 'a' <= x && x <= fromEnum 'z' = (toEnum x) : asciiToString xs
+     | fromEnum 'A' <= x && x <= fromEnum 'Z' = (toEnum x) : asciiToString xs
+     | otherwise = asciiToString xs

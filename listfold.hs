@@ -94,3 +94,10 @@ countFold val = foldr (\x y -> if x == val then y + 1 else y) 0
 isAscendingFold :: (Ord a) => [a] -> Bool
 isAscendingFold [] = True
 isAscendingFold (z:zs) = snd $ foldl (\(prev, state) x -> if state && prev < x then (x, True) else (x, False)) (z, True) zs
+
+insertSortFold :: Ord a => [a] -> [a]
+insertSortFold = foldl (insert) []
+                  where
+                    insert [] elem = [elem]
+                    insert (x:acc) elem = if x >= elem then elem : x : acc else x : (insert acc elem)
+  
