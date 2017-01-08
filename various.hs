@@ -60,3 +60,6 @@ asciiToString (x:xs)
      | fromEnum 'a' <= x && x <= fromEnum 'z' = (toEnum x) : asciiToString xs
      | fromEnum 'A' <= x && x <= fromEnum 'Z' = (toEnum x) : asciiToString xs
      | otherwise = asciiToString xs
+
+pythagoras :: Int -> [(Int, Int, Int)]
+pythagoras n = [(a, b, c) | c <- [1..n], a <- [1..c], b <- [1..c], c^2 == a^2 + b^2]
