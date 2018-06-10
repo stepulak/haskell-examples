@@ -1,2 +1,2 @@
 # nonimperative-examples
-Some of my (humble) usefull stuff from IB015 course
+My very humble algorithm collection written in Haskell.
