@@ -1,2 +1,2 @@
-# nonimperative-examples
+# haskell-examples
 My very humble algorithm collection written in Haskell.
