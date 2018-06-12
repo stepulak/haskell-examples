@@ -63,3 +63,17 @@ asciiToString (x:xs)
 
 pythagoras :: Int -> [(Int, Int, Int)]
 pythagoras n = [(a, b, c) | c <- [1..n], a <- [1..c], b <- [1..c], c^2 == a^2 + b^2]
+
+fibonacci :: Integer -> Integer
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci n = fibonacci (n-2) + fibonacci (n-1)
+
+foldl' :: (a -> b -> a) -> a -> [b] -> a
+foldl' f acc [x] = f acc x
+foldl' f acc (x:y:s) = foldl' (f) (f acc x) (y:s)
+
+zip' :: [a] -> [b] -> [(a,b)]
+zip' [] _ = []
+zip' _ [] = []
+zip' (x:s) (y:t) = (x,y) : (zip' s t)
